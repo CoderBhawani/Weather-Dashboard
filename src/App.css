@@ -14,7 +14,7 @@
   height: 100vh;
   scroll-behavior: smooth;
   margin: auto;
-  position: relative; /* Necessary for absolute positioning of effects */
+  position: relative; 
 }
 
 /* Adding Lightning/Bubble Effect */

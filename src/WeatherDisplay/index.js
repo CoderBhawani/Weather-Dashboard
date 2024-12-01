@@ -26,7 +26,7 @@ const WeatherDisplay = ({ city }) => {
           `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&appid=${API_KEY}&units=${unit}`
         )
         .then((response) => {
-          // Filter forecast to show only one entry per day (e.g., 12:00 PM)--vaise ye multipal hain lekin filter se humne one by one nikali hain
+          // Filter forecast to show only one entry per day (e.g., 12:00 PM)--vaise ye multipal hain lekin filter se humne one by one nikali hain 12 ke liye
           const filteredForecast = response.data.list.filter((entry) =>
             entry.dt_txt.includes("12:00:00")
           );
