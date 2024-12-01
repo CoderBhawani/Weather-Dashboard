@@ -1,0 +1,95 @@
+/* General container for WeatherDisplay */
+
+.weather-container {
+
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Heading styles */
+.weather-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Current weather information */
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Button styles */
+.btnnn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #fff;
+  background: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnnn:hover {
+  background: #0056b3;
+}
+
+/* Forecast heading */
+.day {
+  text-align: center;
+  font-size: 18px;
+  color: #444;
+  margin: 20px 0 10px;
+}
+
+/* Forecast list styles */
+.forecast-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.forecast-list .listname {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Add hover effect on forecast list items */
+.forecast-list .listname:hover {
+  background: #f1f1f1;
+}
+
+/* Ensure responsive design */
+@media (max-width: 768px) {
+  .weather-container {
+    padding: 15px;
+  }
+
+  .btnnn {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .forecast-list .listname {
+    font-size: 13px;
+  }
+}

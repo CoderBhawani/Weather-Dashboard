@@ -1,38 +1,77 @@
-.App {
-  text-align: center;
+  Global Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  background-color: #0d022fed;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Main Container */
+.main {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  
+  border: 2px solid #3498db;  /* Blue border around the main div */
+  border-radius: 10px;
+  padding: 100px;
+  background-color: #0d022fed;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  max-width: 1000px;
+  margin: auto; /* Center the container horizontally */
 }
 
-.App-link {
-  color: #61dafb;
+/* Heading Style */
+.heading {
+  font-size: 28px;
+  color: #bfcfdf;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Input Field Style */
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  color: black;
+}
+
+input[type="text"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+.sub{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 50px;
+}
+
+/* Weather Display and Favorites Component Styling */
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .main {
+    width: 100%;
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .heading {
+    font-size: 24px;
+    color: white;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
   }
 }
