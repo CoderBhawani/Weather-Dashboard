@@ -1,33 +1,38 @@
-  Global Reset
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-  background-color: #0d022fed;
-}
-
 /* Main Container */
 .main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-  border: 2px solid #3498db;  /* Blue border around the main div */
+  border: 2px solid #3498db;
   border-radius: 10px;
   padding: 100px;
   background-color: #0d022fed;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 70%;
-  max-width: 1000px;
-  margin: auto; /* Center the container horizontally */
+  width: 100%;
+  max-width: 1600px;
+  height: 100vh;
+  scroll-behavior: smooth;
+  margin: auto;
+  position: relative; /* Necessary for absolute positioning of effects */
 }
 
-/* Heading Style */
+/* Adding Lightning/Bubble Effect */
+.main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  animation: lightningEffect 3s infinite alternate, bubbleEffect 5s infinite ease-in-out;
+  pointer-events: none;
+}
+
 .heading {
   font-size: 28px;
-  color: #bfcfdf;
+  color: #02060a;
   margin-bottom: 20px;
   font-weight: bold;
 }
@@ -48,30 +53,79 @@ input[type="text"]:focus {
   border-color: #3498db;
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
-.sub{
+
+.sub {
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin-top: 50px;
 }
 
-/* Weather Display and Favorites Component Styling */
+@keyframes lightningEffect {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+}
 
+@keyframes bubbleEffect {
+  0% {
+    top: 100%;
+    opacity: 0.3;
+  }
+  50% {
+    top: 50%;
+    opacity: 0.7;
+  }
+  100% {
+    top: 100%;
+    opacity: 0.3;
+  }
+}
 
-/* Mobile Responsiveness */
+/* Responsive Design for Mobile */
 @media (max-width: 768px) {
   .main {
-    width: 100%;
-    padding: 15px;
+    padding: 20px;
+    max-width: 100%;
   }
 
   .heading {
     font-size: 24px;
-    color: white;
+    text-align: center;
   }
 
   input[type="text"] {
     width: 100%;
+    font-size: 14px;
     padding: 8px;
+  }
+
+  .sub {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 20px;
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  .sub {
+    margin-top: 20px;
   }
 }

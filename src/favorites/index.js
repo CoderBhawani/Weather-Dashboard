@@ -6,13 +6,16 @@ const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
   const [newCity, setNewCity] = useState("");
 
-  // Fetch favorites from JSON server
+  // Fetch favorites from JSON server--,,
   useEffect(() => {
     axios
       .get("http://localhost:5000/favorites")
       .then((response) => setFavorites(response.data))
       .catch((error) => console.error(error));
   }, []);
+  
+  // console.log(newcity,"bhawani shanar console")
+  // console.log(response,"bhawani shanar responxce")
 
   // Add a city to favorites
   const addFavorite = () => {
@@ -68,3 +71,6 @@ const Favorites = () => {
 };
 
 export default Favorites;
+
+
+// please run the server ---- json-server --watch db.json --port 5000

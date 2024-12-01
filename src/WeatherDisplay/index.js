@@ -5,14 +5,14 @@ import "./index.css"
 const WeatherDisplay = ({ city }) => {
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState([]);
-  const [unit, setUnit] = useState("metric"); // "metric" for Celsius, "imperial" for Fahrenheit
+  const [unit, setUnit] = useState("metric"); // "metric" for Celsius, "imperial" for Fahrenheit--,,
   const [storedCity, setStoredCity] = useState(localStorage.getItem("lastCity") || "");
 
   useEffect(() => {
     const API_KEY = "0890131f6c3631731e1f8794b712001d";
 
     const fetchWeather = (selectedCity) => {
-      // Fetch current weather
+      // Fetch current weather--,,
       axios
         .get(
           `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${API_KEY}&units=${unit}`
@@ -20,13 +20,13 @@ const WeatherDisplay = ({ city }) => {
         .then((response) => setWeather(response.data))
         .catch((error) => console.error(error));
 
-      // Fetch 5-day forecast
+      // Fetch 5-day forecast--,,
       axios
         .get(
           `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&appid=${API_KEY}&units=${unit}`
         )
         .then((response) => {
-          // Filter forecast to show only one entry per day (e.g., 12:00 PM)
+          // Filter forecast to show only one entry per day (e.g., 12:00 PM)--vaise ye multipal hain lekin filter se humne one by one nikali hain
           const filteredForecast = response.data.list.filter((entry) =>
             entry.dt_txt.includes("12:00:00")
           );
@@ -39,7 +39,7 @@ const WeatherDisplay = ({ city }) => {
     if (activeCity) {
       fetchWeather(activeCity);
 
-      // Save the last searched city to LocalStorage
+      // Save the last searched city to LocalStorage---
       localStorage.setItem("lastCity", activeCity);
     }
   }, [city, unit, storedCity]);
@@ -76,4 +76,5 @@ const WeatherDisplay = ({ city }) => {
   
 };
 
-export default WeatherDisplay;
+export default WeatherDisplay;  
+

@@ -1,15 +1,50 @@
-/* General container for WeatherDisplay */
-
 .weather-container {
-
   max-width: 400px;
   margin: 20px auto;
   padding: 20px;
-  background: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  
+  background: rgba(255, 255, 255, 0.3);  /* Slightly transparent background */
+  backdrop-filter: blur(8px);  /* Adds a blur effect behind */
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.15);  /* Subtle shadow */
+  border-radius: 15px;  /* Rounded corners */
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);  /* Soft border */
+  position: relative;
+  overflow: hidden;
 }
+
+.weather-container::before {
+  content: '';
+  position: absolute;
+  top: 0;  /* Start from the top */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+  animation: bubbleEffect 2s infinite ease-in-out;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@keyframes bubbleEffect {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+    top: 0;  /* Bubble starting point */
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+    top: -50%;  /* Move up */
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.6;
+    top: 0;  /* Return to start */
+  }
+}
+
 
 /* Heading styles */
 .weather-container h2 {
